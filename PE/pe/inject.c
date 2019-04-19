@@ -3,7 +3,9 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 
+int listFile();
 int parsePE(char *fileName);
 DWORD getCave(DWORD rawAddSec, DWORD rawSizeSec, LPDWORD rawAddCode);
 
@@ -18,18 +20,49 @@ PIMAGE_DATA_DIRECTORY		dataDirec;
 PIMAGE_SECTION_HEADER		sectionHeader;
 PIMAGE_IMPORT_DESCRIPTOR	iid;
 
+char directory[20][50];
+
 int main()
 {
-	parsePE("BASECALC.EXE");
-	parsePE("reverseMe.exe");
-	parsePE("SetupReg.EXE");
-	parsePE("sigsegv.exe");
-	parsePE("UnPnP.exe");
+	int numberFile;
+	int i;
+
+	// Read all file in directory and return number of file
+	numberFile = listFile();
+
+	// parse PE file
+	for (i=0;i< numberFile; ++i)
+	{
+		if ((strstr(directory[i],".exe") != NULL || strstr(directory[i],".EXE") != NULL))
+			parsePE(directory[i]);
+	}
 
 	printf("Enter to Exit!\n");
 	getch();
 	
 	return 0;
+}
+
+int listFile()
+{
+	DIR *d;
+	struct dirent *dir;
+	int i,j;
+
+	d = opendir(".");
+	i = 0;
+	j = 0;
+
+	if (d)
+	{
+		while ((dir = readdir(d)) != NULL)
+		{
+			for (j=0; j<strlen(dir->d_name); ++j) directory[i][j] = dir->d_name[j];
+				directory[i++][j] = 0;
+		}
+		closedir(d);
+	}
+	return i;
 }
 
 int parsePE(char *fileName)
