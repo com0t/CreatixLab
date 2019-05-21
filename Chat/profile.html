@@ -9,7 +9,7 @@
 <body>
 	<header>
 		<div class="container">
-			<a href="#">CHAT</a>
+			<a href="chat.html">CHAT</a>
 
 			<div class="logout">
 				<img class="icon-small" src="res/logout.png" alt="logout">
@@ -17,8 +17,10 @@
 			</div>
 			
 			<div class="profile">
-				<img class="icon-small" src="res/user.png" alt="logout">
-				<label>Profile</label>
+				<a href="profile.html">
+					<img class="icon-small" src="res/user.png" alt="logout">
+					<label>Profile</label>
+				</a>
 			</div>
 		</div>
 	</header>
@@ -31,7 +33,7 @@
 			
 			<div class="profile-container">
 				<div class="avatar-container">
-					<img src="" alt="avatar">
+					<img src="res/user.png" alt="avatar">
 					<button id="btn_upload_avatar">
 						Upload Picture
 					</button>
@@ -69,7 +71,7 @@
 				<div class="input-box">
 					<button id="btn_update_profile">Update Profile</button>
 					
-				<button id="btn_change_password">Change Password</button>
+					<button id="btn_change_password">Change Password</button>
 				</div>
 			</div>
 		</div>
@@ -77,7 +79,7 @@
 		<div class="middle-container"></div>
 
 		<div class="right-container right-profile">
-			<div id="change_password">
+			<div id="change_password" style="display: none">
 				<div class="header">
 					<span>Change Password</span>
 				</div>
@@ -106,7 +108,7 @@
 				</form>
 			</div>
 
-			<div id="upload_avatar">
+			<div id="upload_avatar" style="display: none">
 				<div class="header">
 					<span>Upload Avatar</span>
 				</div>
@@ -128,12 +130,69 @@
 				</div>
 			</div>
 
-			<div id="update_profile">
+			<div id="update_profile" style="display: none">
 				<div class="header">
 					<span>Update Profile</span>
+				</div>
+
+				<div class="content">
+					<form action="">
+						<div class="content">
+							<div class="input-box">
+								<label>Password</label>
+								<input type="password" name="oldpassword">
+							</div>
+
+							<div class="input-box">
+								<label>Full name</label>
+								<input type="text" name="fullname">
+							</div>
+
+							<div class="input-box">
+								<label>Email</label>
+								<input type="text" name="email">
+							</div>
+
+							<div class="input-box">
+								<label>Phone</label>
+								<input type="text" name="phone">
+							</div>
+
+
+							<div class="input-box">
+								<button type="submit">Update</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<script>
+		let btn_update_profile = document.getElementById("btn_update_profile");
+		let btn_upload_avatar = document.getElementById("btn_upload_avatar");
+		let btn_change_password = document.getElementById("btn_change_password");
+
+		let update_profile = document.getElementById("update_profile");
+		let upload_avatar = document.getElementById("upload_avatar");
+		let change_password = document.getElementById("change_password");
+
+		btn_update_profile.addEventListener("click", function() {
+			update_profile.style.display = "block";
+			upload_avatar.style.display = "none";
+			change_password.style.display = "none";
+		});
+		btn_upload_avatar.addEventListener("click", function() {
+			update_profile.style.display = "none";
+			upload_avatar.style.display = "block";
+			change_password.style.display = "none";
+		});
+		btn_change_password.addEventListener("click", function() {
+			update_profile.style.display = "none";
+			upload_avatar.style.display = "none";
+			change_password.style.display = "block";
+		});
+	</script>
 </body>
 </html>

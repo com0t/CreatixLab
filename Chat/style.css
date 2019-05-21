@@ -147,6 +147,16 @@ header {
 	color: #FF9A13;
 }
 
+.profile a {
+	text-decoration: none;
+	color: #000;
+}
+
+.profile a:hover {
+	text-decoration: underline;
+	text-decoration-color: #FF9A13;
+}
+
 .left-container {
 	width: 180px;
 	float: left;
@@ -380,4 +390,54 @@ header {
 	left: 0;
 	top: 0;
 	opacity: 0;
+}
+
+.profile-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.avatar-container,
+.info-container {
+	width: 50%;
+}
+
+.avatar-container img {
+	display: block;
+	width: 180px;
+	height: 180px;
+}
+
+.avatar-container button {
+	margin-top: 2em;
+    outline: none;
+    border: 1px solid #B3E5FC;
+    padding: .5em .9em;
+    background: #B3E5FC;
+    border-radius: 2px;
+    transition: .5s;
+    margin-left: 3em;
+}
+
+.avatar-container button:hover {
+    background: #29B6F6;
+    border: 1px solid #29B6F6;
+}
+
+.info-container {
+	margin-top: 2em;
+}
+
+.info-box {
+	margin: .5em 0;
+}
+
+.info-box label {
+	display: inline-block;
+	width: 100px;
+	font-weight: bold;
+}
+
+.info-box span {
+	color: #FF9620;
 }
