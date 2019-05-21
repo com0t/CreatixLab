@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Chat</title>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<a href="#">CHAT</a>
+
+			<div class="logout">
+				<img class="icon-small" src="res/logout.png" alt="logout">
+				<label>Logout</label>
+			</div>
+			
+			<div class="profile">
+				<img class="icon-small" src="res/user.png" alt="logout">
+				<label>Profile</label>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="left-container left-profile">
+			<div class="header">
+				<span>Profile</span>
+			</div>
+			
+			<div class="profile-container">
+				<div class="avatar-container">
+					<img src="" alt="avatar">
+					<button id="btn_upload_avatar">
+						Upload Picture
+					</button>
+				</div>
+
+				<div class="info-container">
+					<div class="info-box">
+						<label>Name</label>
+						<span>John 01</span>
+					</div>
+
+					<div class="info-box">
+						<label>Username</label>
+						<span>user01</span>
+					</div>
+
+					<div class="info-box">
+						<label>Email</label>
+						<span>mail@gmail.com</span>
+					</div>
+
+					<div class="info-box">
+						<label>Phone</label>
+						<span>0123456789</span>
+					</div>
+
+					<div class="info-box">
+						<label>Birthday</label>
+						<span>June 5, 1992</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="tool-bar">
+				<div class="input-box">
+					<button id="btn_update_profile">Update Profile</button>
+					
+				<button id="btn_change_password">Change Password</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="middle-container"></div>
+
+		<div class="right-container right-profile">
+			<div id="change_password">
+				<div class="header">
+					<span>Change Password</span>
+				</div>
+				
+				<form action="">
+					<div class="content">
+						<div class="input-box">
+							<label>Password</label>
+							<input type="password" name="oldpassword">
+						</div>
+
+						<div class="input-box">
+							<label>New Password</label>
+							<input type="password" name="newpassword">
+						</div>
+
+						<div class="input-box">
+							<label>Confirm Password</label>
+							<input type="password" name="repassword">
+						</div>
+
+						<div class="input-box">
+							<button type="submit">Update</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div id="upload_avatar">
+				<div class="header">
+					<span>Upload Avatar</span>
+				</div>
+
+				<div class="content">
+					<form action="">
+						<div class="input-box">
+							<label>Choose the picture</label>
+							<div class="upload-btn-wrapper">
+								<button class="btn">Choose a file</button>
+								<input type="file" name="myfile" />
+							</div>
+						</div>
+
+						<div class="input-box">
+							<button type="submit">Upload</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="update_profile">
+				<div class="header">
+					<span>Update Profile</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
